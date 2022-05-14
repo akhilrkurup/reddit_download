@@ -4,7 +4,7 @@ Created on Sat May 14 20:08:29 2022
 
 @author:Akhil R Kurup
 """
-import praw, json
+import praw, yaml
 
 reddit = praw.Reddit(
     client_id="mlCV4KaLVVmrOj6nz2ULZQ",
@@ -14,5 +14,6 @@ reddit = praw.Reddit(
 
 sr = reddit.subreddit("memes")
 for subm in sr.hot(limit=1):
-    with open("vars.txt", "w") as f:
-        f.write(str(vars(subm)))
+    a = subm
+v = vars(a)
+print(yaml.dump(v, sort_keys=False, default_flow_style=False))
