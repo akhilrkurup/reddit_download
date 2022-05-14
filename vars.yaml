@@ -1,0 +1,953 @@
+_comments_by_id: {}
+_fetched: false
+_reddit: &id002 !!python/object:praw.reddit.Reddit
+  _authorized_core: null
+  _core: &id003 !!python/object:prawcore.sessions.Session
+    _authorizer: !!python/object:prawcore.auth.ReadOnlyAuthorizer
+      _authenticator: !!python/object:prawcore.auth.TrustedAuthenticator
+        _requestor: !!python/object:prawcore.requestor.Requestor
+          _http: !!python/object:requests.sessions.Session
+            adapters: !!python/object/apply:collections.OrderedDict
+            - - - https://
+                - !!python/object:requests.adapters.HTTPAdapter
+                  _pool_block: false
+                  _pool_connections: 10
+                  _pool_maxsize: 10
+                  config: {}
+                  max_retries: !!python/object:urllib3.util.retry.Retry
+                    allowed_methods: &id001 !!python/object/apply:builtins.frozenset
+                    - - PUT
+                      - OPTIONS
+                      - GET
+                      - HEAD
+                      - TRACE
+                      - DELETE
+                    backoff_factor: 0
+                    connect: null
+                    history: !!python/tuple []
+                    other: null
+                    raise_on_redirect: true
+                    raise_on_status: true
+                    read: false
+                    redirect: null
+                    remove_headers_on_redirect: !!python/object/apply:builtins.frozenset
+                    - - authorization
+                    respect_retry_after_header: true
+                    status: null
+                    status_forcelist: !!set {}
+                    total: 0
+              - - http://
+                - !!python/object:requests.adapters.HTTPAdapter
+                  _pool_block: false
+                  _pool_connections: 10
+                  _pool_maxsize: 10
+                  config: {}
+                  max_retries: !!python/object:urllib3.util.retry.Retry
+                    allowed_methods: *id001
+                    backoff_factor: 0
+                    connect: null
+                    history: !!python/tuple []
+                    other: null
+                    raise_on_redirect: true
+                    raise_on_status: true
+                    read: false
+                    redirect: null
+                    remove_headers_on_redirect: !!python/object/apply:builtins.frozenset
+                    - - authorization
+                    respect_retry_after_header: true
+                    status: null
+                    status_forcelist: !!set {}
+                    total: 0
+            auth: null
+            cert: null
+            cookies: !!python/object:requests.cookies.RequestsCookieJar
+              _cookies:
+                .reddit.com:
+                  /:
+                    csv: !!python/object:http.cookiejar.Cookie
+                      _rest:
+                        SameSite: None
+                      comment: null
+                      comment_url: null
+                      discard: false
+                      domain: .reddit.com
+                      domain_initial_dot: true
+                      domain_specified: true
+                      expires: 1715617961
+                      name: csv
+                      path: /
+                      path_specified: true
+                      port: null
+                      port_specified: false
+                      rfc2109: false
+                      secure: true
+                      value: '2'
+                      version: 0
+                    edgebucket: !!python/object:http.cookiejar.Cookie
+                      _rest: {}
+                      comment: null
+                      comment_url: null
+                      discard: false
+                      domain: .reddit.com
+                      domain_initial_dot: false
+                      domain_specified: true
+                      expires: 1715617958
+                      name: edgebucket
+                      path: /
+                      path_specified: true
+                      port: null
+                      port_specified: false
+                      rfc2109: false
+                      secure: true
+                      value: NQrE8A4eahH00xPjuk
+                      version: 0
+                    loid: !!python/object:http.cookiejar.Cookie
+                      _rest:
+                        SameSite: None
+                      comment: null
+                      comment_url: null
+                      discard: false
+                      domain: .reddit.com
+                      domain_initial_dot: false
+                      domain_specified: true
+                      expires: 1715617960
+                      name: loid
+                      path: /
+                      path_specified: true
+                      port: null
+                      port_specified: false
+                      rfc2109: false
+                      secure: true
+                      value: 0000000000n46ufta9.2.1652545959000.Z0FBQUFBQmlmOW1xT0hnT2M1SEVxUHVQSVZRWVpzOVV1c2lVajBTWU5lRmFJREttQ1RFam14a3dlNDJEcUFHQVRpSEdMNkpLalAwcklFUFdmbm0tOENjQkp5cDFPc3dnUlpIWU5RVlM1QzhpdkF1T2tkYkM0V0VZLTExdzFrOTFPOXNmMDcyVmZhZlo
+                      version: 0
+                    session_tracker: !!python/object:http.cookiejar.Cookie
+                      _rest:
+                        SameSite: None
+                      comment: null
+                      comment_url: null
+                      discard: false
+                      domain: .reddit.com
+                      domain_initial_dot: false
+                      domain_specified: true
+                      expires: 1652553160
+                      name: session_tracker
+                      path: /
+                      path_specified: true
+                      port: null
+                      port_specified: false
+                      rfc2109: false
+                      secure: true
+                      value: dmbibpolcjonnikgha.0.1652545962552.Z0FBQUFBQmlmOW1xTzltalB1Zm1KcU94U0tlQ0pCeklHenkyMlFEaS1sOHpLOHpMR3EzZnR1TDZMY0JGY1lkUzh6UnNCX215MzZkeTUyWGtyLTVQb015eGhmeEI0Ymp0cWlpeFE5a3RxOFdXcFFiQ1B5Z2F6SlJKbGZsTHZ4MnBuS2tQbWdZRXR4TTg
+                      version: 0
+              _now: 1652545961
+              _policy: !!python/object:http.cookiejar.DefaultCookiePolicy
+                _allowed_domains: null
+                _blocked_domains: !!python/tuple []
+                _now: 1652545961
+                hide_cookie2: false
+                netscape: true
+                rfc2109_as_netscape: null
+                rfc2965: false
+                secure_protocols: !!python/tuple
+                - https
+                - wss
+                strict_domain: false
+                strict_ns_domain: 0
+                strict_ns_set_initial_dollar: false
+                strict_ns_set_path: false
+                strict_ns_unverifiable: false
+                strict_rfc2965_unverifiable: true
+            headers: !!python/object:requests.structures.CaseInsensitiveDict
+              _store: !!python/object/apply:collections.OrderedDict
+              - - - user-agent
+                  - !!python/tuple
+                    - User-Agent
+                    - my user agent PRAW/7.5.0 prawcore/2.3.0
+                - - accept-encoding
+                  - !!python/tuple
+                    - Accept-Encoding
+                    - gzip, deflate, br
+                - - accept
+                  - !!python/tuple
+                    - Accept
+                    - '*/*'
+                - - connection
+                  - !!python/tuple
+                    - Connection
+                    - keep-alive
+            hooks:
+              response: []
+            max_redirects: 30
+            params: {}
+            proxies: {}
+            stream: false
+            trust_env: true
+            verify: true
+          oauth_url: https://oauth.reddit.com
+          reddit_url: https://www.reddit.com
+          timeout: 16.0
+        client_id: mlCV4KaLVVmrOj6nz2ULZQ
+        client_secret: DC0wvImgiUPixsQR2FrJvkvdr1JOew
+        redirect_uri: &id004 !!python/object:praw.config._NotSet {}
+      _expiration_timestamp: 1652632348.0256524
+      _post_refresh_callback: null
+      _pre_refresh_callback: null
+      _scopes: null
+      access_token: -rqzBiOM82xvB5TOY1y_Yy4gZCTyrBg
+      refresh_token: null
+      scopes: !!set
+        '*': null
+    _rate_limiter: !!python/object:prawcore.rate_limit.RateLimiter
+      next_request_timestamp: 1652545971.5673845
+      remaining: 299.0
+      reset_timestamp: 1652546399.5673845
+      used: 1
+    _retry_strategy_class: !!python/name:prawcore.sessions.FiniteRetryStrategy ''
+  _objector: !!python/object:praw.objector.Objector
+    _reddit: *id002
+    parsers:
+      Button: !!python/name:praw.models.reddit.widgets.Button ''
+      Collection: !!python/name:praw.models.reddit.collections.Collection ''
+      Draft: !!python/name:praw.models.reddit.draft.Draft ''
+      DraftList: !!python/name:praw.models.list.draft.DraftList ''
+      Image: !!python/name:praw.models.reddit.widgets.Image ''
+      LabeledMulti: !!python/name:praw.models.reddit.multi.Multireddit ''
+      Listing: !!python/name:praw.models.listing.listing.Listing ''
+      LiveUpdate: !!python/name:praw.models.reddit.live.LiveUpdate ''
+      LiveUpdateEvent: !!python/name:praw.models.reddit.live.LiveThread ''
+      MenuLink: !!python/name:praw.models.reddit.widgets.MenuLink ''
+      ModeratedList: !!python/name:praw.models.list.moderated.ModeratedList ''
+      ModmailAction: !!python/name:praw.models.reddit.modmail.ModmailAction ''
+      ModmailConversation: !!python/name:praw.models.reddit.modmail.ModmailConversation ''
+      ModmailMessage: !!python/name:praw.models.reddit.modmail.ModmailMessage ''
+      Submenu: !!python/name:praw.models.reddit.widgets.Submenu ''
+      TrophyList: !!python/name:praw.models.list.trophy.TrophyList ''
+      UserList: !!python/name:praw.models.list.redditor.RedditorList ''
+      UserSubreddit: !!python/name:praw.models.reddit.user_subreddit.UserSubreddit ''
+      button: !!python/name:praw.models.reddit.widgets.ButtonWidget ''
+      calendar: !!python/name:praw.models.reddit.widgets.Calendar ''
+      community-list: !!python/name:praw.models.reddit.widgets.CommunityList ''
+      custom: !!python/name:praw.models.reddit.widgets.CustomWidget ''
+      id-card: !!python/name:praw.models.reddit.widgets.IDCard ''
+      image: !!python/name:praw.models.reddit.widgets.ImageWidget ''
+      menu: !!python/name:praw.models.reddit.widgets.Menu ''
+      modaction: !!python/name:praw.models.mod_action.ModAction ''
+      moderator-list: !!python/name:praw.models.listing.listing.ModeratorListing ''
+      moderators: !!python/name:praw.models.reddit.widgets.ModeratorsWidget ''
+      more: !!python/name:praw.models.reddit.more.MoreComments ''
+      post-flair: !!python/name:praw.models.reddit.widgets.PostFlairWidget ''
+      rule: !!python/name:praw.models.reddit.rules.Rule ''
+      stylesheet: !!python/name:praw.models.stylesheet.Stylesheet ''
+      subreddit-rules: !!python/name:praw.models.reddit.widgets.RulesWidget ''
+      t1: !!python/name:praw.models.reddit.comment.Comment ''
+      t2: !!python/name:praw.models.reddit.redditor.Redditor ''
+      t3: !!python/name:praw.models.reddit.submission.Submission ''
+      t4: !!python/name:praw.models.reddit.message.Message ''
+      t5: !!python/name:praw.models.reddit.subreddit.Subreddit ''
+      t6: !!python/name:praw.models.trophy.Trophy ''
+      textarea: !!python/name:praw.models.reddit.widgets.TextArea ''
+      widget: !!python/name:praw.models.reddit.widgets.Widget ''
+  _read_only_core: *id003
+  _token_manager: null
+  _unique_counter: 0
+  _validate_on_submit: false
+  auth: !!python/object:praw.models.auth.Auth
+    _reddit: *id002
+  config: !!python/object:praw.config.Config
+    _settings:
+      client_id: mlCV4KaLVVmrOj6nz2ULZQ
+      client_secret: DC0wvImgiUPixsQR2FrJvkvdr1JOew
+      user_agent: my user agent
+    _short_url: https://redd.it
+    check_for_async: true
+    check_for_updates: true
+    client_id: mlCV4KaLVVmrOj6nz2ULZQ
+    client_secret: DC0wvImgiUPixsQR2FrJvkvdr1JOew
+    custom: {}
+    kinds:
+      comment: t1
+      message: t4
+      redditor: t2
+      submission: t3
+      subreddit: t5
+      trophy: t6
+    oauth_url: https://oauth.reddit.com
+    password: *id004
+    ratelimit_seconds: 5
+    reddit_url: https://www.reddit.com
+    redirect_uri: *id004
+    refresh_token: *id004
+    timeout: 16
+    user_agent: my user agent
+    username: *id004
+    warn_comment_sort: true
+  drafts: !!python/object:praw.models.helpers.DraftHelper
+    _reddit: *id002
+  front: !!python/object:praw.models.front.Front
+    _path: /
+    _reddit: *id002
+  inbox: !!python/object:praw.models.inbox.Inbox
+    _reddit: *id002
+  live: !!python/object:praw.models.helpers.LiveHelper
+    _reddit: *id002
+  multireddit: !!python/object:praw.models.helpers.MultiredditHelper
+    _reddit: *id002
+  redditors: !!python/object:praw.models.redditors.Redditors
+    _reddit: *id002
+  subreddit: !!python/object:praw.models.helpers.SubredditHelper
+    _reddit: *id002
+  subreddits: !!python/object:praw.models.subreddits.Subreddits
+    _reddit: *id002
+  user: !!python/object:praw.models.user.User
+    _reddit: *id002
+all_awardings:
+- award_sub_type: PREMIUM
+  award_type: global
+  awardings_required_to_grant_benefits: null
+  coin_price: 20
+  coin_reward: 0
+  count: 1
+  days_of_drip_extension: null
+  days_of_premium: null
+  description: When you follow your heart, love is the answer
+  end_date: null
+  giver_coin_reward: null
+  icon_format: PNG
+  icon_height: 2048
+  icon_url: https://i.redd.it/award_images/t5_22cerq/j3azv69qjfn51_LOVE.png
+  icon_width: 2048
+  id: award_5eac457f-ebac-449b-93a7-eb17b557f03c
+  is_enabled: true
+  is_new: false
+  name: LOVE!
+  penny_donate: null
+  penny_price: 0
+  resized_icons:
+  - height: 16
+    url: https://preview.redd.it/award_images/t5_22cerq/j3azv69qjfn51_LOVE.png?width=16&height=16&auto=webp&s=bc61b528b8d075c26a3d0f2ad3d9e42259c51cbe
+    width: 16
+  - height: 32
+    url: https://preview.redd.it/award_images/t5_22cerq/j3azv69qjfn51_LOVE.png?width=32&height=32&auto=webp&s=d576c9a19ed29ca5624333239dbde289a146930b
+    width: 32
+  - height: 48
+    url: https://preview.redd.it/award_images/t5_22cerq/j3azv69qjfn51_LOVE.png?width=48&height=48&auto=webp&s=da1e45654f5acfb6be44fa07c168ad6420796f56
+    width: 48
+  - height: 64
+    url: https://preview.redd.it/award_images/t5_22cerq/j3azv69qjfn51_LOVE.png?width=64&height=64&auto=webp&s=677455ac05c563b5585f76e52ee96354f1430799
+    width: 64
+  - height: 128
+    url: https://preview.redd.it/award_images/t5_22cerq/j3azv69qjfn51_LOVE.png?width=128&height=128&auto=webp&s=25a3b6021a92685b01883fb3d947d2959a75d8b3
+    width: 128
+  resized_static_icons:
+  - height: 16
+    url: https://preview.redd.it/award_images/t5_22cerq/j3azv69qjfn51_LOVE.png?width=16&height=16&auto=webp&s=bc61b528b8d075c26a3d0f2ad3d9e42259c51cbe
+    width: 16
+  - height: 32
+    url: https://preview.redd.it/award_images/t5_22cerq/j3azv69qjfn51_LOVE.png?width=32&height=32&auto=webp&s=d576c9a19ed29ca5624333239dbde289a146930b
+    width: 32
+  - height: 48
+    url: https://preview.redd.it/award_images/t5_22cerq/j3azv69qjfn51_LOVE.png?width=48&height=48&auto=webp&s=da1e45654f5acfb6be44fa07c168ad6420796f56
+    width: 48
+  - height: 64
+    url: https://preview.redd.it/award_images/t5_22cerq/j3azv69qjfn51_LOVE.png?width=64&height=64&auto=webp&s=677455ac05c563b5585f76e52ee96354f1430799
+    width: 64
+  - height: 128
+    url: https://preview.redd.it/award_images/t5_22cerq/j3azv69qjfn51_LOVE.png?width=128&height=128&auto=webp&s=25a3b6021a92685b01883fb3d947d2959a75d8b3
+    width: 128
+  start_date: null
+  static_icon_height: 2048
+  static_icon_url: https://i.redd.it/award_images/t5_22cerq/j3azv69qjfn51_LOVE.png
+  static_icon_width: 2048
+  subreddit_coin_reward: 0
+  subreddit_id: null
+  tiers_by_required_awardings: null
+- award_sub_type: PREMIUM
+  award_type: global
+  awardings_required_to_grant_benefits: null
+  coin_price: 30
+  coin_reward: 0
+  count: 1
+  days_of_drip_extension: null
+  days_of_premium: null
+  description: A glittering stamp for a feel-good thing
+  end_date: null
+  giver_coin_reward: null
+  icon_format: null
+  icon_height: 2048
+  icon_url: https://i.redd.it/award_images/t5_22cerq/b9ks3a5k7jj41_WholesomeSealofApproval.png
+  icon_width: 2048
+  id: award_c4b2e438-16bb-4568-88e7-7893b7662944
+  is_enabled: true
+  is_new: false
+  name: Wholesome Seal of Approval
+  penny_donate: null
+  penny_price: null
+  resized_icons:
+  - height: 16
+    url: https://preview.redd.it/award_images/t5_22cerq/b9ks3a5k7jj41_WholesomeSealofApproval.png?width=16&height=16&auto=webp&s=1a331be5cf6d754b4cb7ed2ca3706f70d5260a57
+    width: 16
+  - height: 32
+    url: https://preview.redd.it/award_images/t5_22cerq/b9ks3a5k7jj41_WholesomeSealofApproval.png?width=32&height=32&auto=webp&s=6d0a6351d4080286095df432f95a103cdf4188f2
+    width: 32
+  - height: 48
+    url: https://preview.redd.it/award_images/t5_22cerq/b9ks3a5k7jj41_WholesomeSealofApproval.png?width=48&height=48&auto=webp&s=913e99a6f6688f26c08dcb411f043f71b17df931
+    width: 48
+  - height: 64
+    url: https://preview.redd.it/award_images/t5_22cerq/b9ks3a5k7jj41_WholesomeSealofApproval.png?width=64&height=64&auto=webp&s=e3ad9900371bf1f91eb422b4d000b3a1c0d5a9c4
+    width: 64
+  - height: 128
+    url: https://preview.redd.it/award_images/t5_22cerq/b9ks3a5k7jj41_WholesomeSealofApproval.png?width=128&height=128&auto=webp&s=4cc281fbace61e034477d2bdb7b158913457863d
+    width: 128
+  resized_static_icons:
+  - height: 16
+    url: https://preview.redd.it/award_images/t5_22cerq/b9ks3a5k7jj41_WholesomeSealofApproval.png?width=16&height=16&auto=webp&s=1a331be5cf6d754b4cb7ed2ca3706f70d5260a57
+    width: 16
+  - height: 32
+    url: https://preview.redd.it/award_images/t5_22cerq/b9ks3a5k7jj41_WholesomeSealofApproval.png?width=32&height=32&auto=webp&s=6d0a6351d4080286095df432f95a103cdf4188f2
+    width: 32
+  - height: 48
+    url: https://preview.redd.it/award_images/t5_22cerq/b9ks3a5k7jj41_WholesomeSealofApproval.png?width=48&height=48&auto=webp&s=913e99a6f6688f26c08dcb411f043f71b17df931
+    width: 48
+  - height: 64
+    url: https://preview.redd.it/award_images/t5_22cerq/b9ks3a5k7jj41_WholesomeSealofApproval.png?width=64&height=64&auto=webp&s=e3ad9900371bf1f91eb422b4d000b3a1c0d5a9c4
+    width: 64
+  - height: 128
+    url: https://preview.redd.it/award_images/t5_22cerq/b9ks3a5k7jj41_WholesomeSealofApproval.png?width=128&height=128&auto=webp&s=4cc281fbace61e034477d2bdb7b158913457863d
+    width: 128
+  start_date: null
+  static_icon_height: 2048
+  static_icon_url: https://i.redd.it/award_images/t5_22cerq/b9ks3a5k7jj41_WholesomeSealofApproval.png
+  static_icon_width: 2048
+  subreddit_coin_reward: 0
+  subreddit_id: null
+  tiers_by_required_awardings: null
+- award_sub_type: GLOBAL
+  award_type: global
+  awardings_required_to_grant_benefits: null
+  coin_price: 200
+  coin_reward: 0
+  count: 1
+  days_of_drip_extension: null
+  days_of_premium: null
+  description: Innocent laughter
+  end_date: null
+  giver_coin_reward: null
+  icon_format: APNG
+  icon_height: 512
+  icon_url: https://www.redditstatic.com/gold/awards/icon/Giggle_512.png
+  icon_width: 512
+  id: award_e813313c-1002-49bf-ac37-e966710f605f
+  is_enabled: true
+  is_new: false
+  name: Giggle
+  penny_donate: null
+  penny_price: 0
+  resized_icons:
+  - height: 16
+    url: https://www.redditstatic.com/gold/awards/icon/Giggle_16.png
+    width: 16
+  - height: 32
+    url: https://www.redditstatic.com/gold/awards/icon/Giggle_32.png
+    width: 32
+  - height: 48
+    url: https://www.redditstatic.com/gold/awards/icon/Giggle_48.png
+    width: 48
+  - height: 64
+    url: https://www.redditstatic.com/gold/awards/icon/Giggle_64.png
+    width: 64
+  - height: 128
+    url: https://www.redditstatic.com/gold/awards/icon/Giggle_128.png
+    width: 128
+  resized_static_icons:
+  - height: 16
+    url: https://preview.redd.it/award_images/t5_22cerq/cp7onb0sf9e51_Giggle.png?width=16&height=16&auto=webp&s=e08bad05dde2e5842a91f7bba4a1f17528f79191
+    width: 16
+  - height: 32
+    url: https://preview.redd.it/award_images/t5_22cerq/cp7onb0sf9e51_Giggle.png?width=32&height=32&auto=webp&s=fe539db7dcc79aa2f99f16851276f06c46077884
+    width: 32
+  - height: 48
+    url: https://preview.redd.it/award_images/t5_22cerq/cp7onb0sf9e51_Giggle.png?width=48&height=48&auto=webp&s=2700dd1ac1ecb1703978cdc769b802493387e3e0
+    width: 48
+  - height: 64
+    url: https://preview.redd.it/award_images/t5_22cerq/cp7onb0sf9e51_Giggle.png?width=64&height=64&auto=webp&s=597cf13251176dd43689d6cc8e086691d6f6079c
+    width: 64
+  - height: 128
+    url: https://preview.redd.it/award_images/t5_22cerq/cp7onb0sf9e51_Giggle.png?width=128&height=128&auto=webp&s=534d2159f34b2698cd6c4255525d73ed6c25ba88
+    width: 128
+  start_date: null
+  static_icon_height: 512
+  static_icon_url: https://i.redd.it/award_images/t5_22cerq/cp7onb0sf9e51_Giggle.png
+  static_icon_width: 512
+  subreddit_coin_reward: 0
+  subreddit_id: null
+  tiers_by_required_awardings: null
+- award_sub_type: GLOBAL
+  award_type: global
+  awardings_required_to_grant_benefits: null
+  coin_price: 250
+  coin_reward: 0
+  count: 1
+  days_of_drip_extension: null
+  days_of_premium: null
+  description: I'm catching the vibration
+  end_date: null
+  giver_coin_reward: null
+  icon_format: APNG
+  icon_height: 512
+  icon_url: https://www.redditstatic.com/gold/awards/icon/Vibing_512.png
+  icon_width: 512
+  id: award_3f4e6f36-dacc-4919-b170-9d0201cd258f
+  is_enabled: true
+  is_new: false
+  name: Vibing
+  penny_donate: null
+  penny_price: 0
+  resized_icons:
+  - height: 16
+    url: https://www.redditstatic.com/gold/awards/icon/Vibing_16.png
+    width: 16
+  - height: 32
+    url: https://www.redditstatic.com/gold/awards/icon/Vibing_32.png
+    width: 32
+  - height: 48
+    url: https://www.redditstatic.com/gold/awards/icon/Vibing_48.png
+    width: 48
+  - height: 64
+    url: https://www.redditstatic.com/gold/awards/icon/Vibing_64.png
+    width: 64
+  - height: 128
+    url: https://www.redditstatic.com/gold/awards/icon/Vibing_128.png
+    width: 128
+  resized_static_icons:
+  - height: 16
+    url: https://preview.redd.it/award_images/t5_22cerq/95cnwtudh5f61_Vibing.png?width=16&height=16&auto=webp&s=5a4409a576a13def135a6d2704cc24ac429e0a84
+    width: 16
+  - height: 32
+    url: https://preview.redd.it/award_images/t5_22cerq/95cnwtudh5f61_Vibing.png?width=32&height=32&auto=webp&s=c46f3b51127701b9cd7553b721d9611c6d24faf2
+    width: 32
+  - height: 48
+    url: https://preview.redd.it/award_images/t5_22cerq/95cnwtudh5f61_Vibing.png?width=48&height=48&auto=webp&s=757b058c0d348bcbd9d9232c7be89f5677481d8d
+    width: 48
+  - height: 64
+    url: https://preview.redd.it/award_images/t5_22cerq/95cnwtudh5f61_Vibing.png?width=64&height=64&auto=webp&s=e9ca78e2da4bd94b2e1393341f62bd7ff172a8c7
+    width: 64
+  - height: 128
+    url: https://preview.redd.it/award_images/t5_22cerq/95cnwtudh5f61_Vibing.png?width=128&height=128&auto=webp&s=a8154958a81de483a8e125a92a29c48cd3032bfd
+    width: 128
+  start_date: null
+  static_icon_height: 512
+  static_icon_url: https://i.redd.it/award_images/t5_22cerq/95cnwtudh5f61_Vibing.png
+  static_icon_width: 512
+  subreddit_coin_reward: 0
+  subreddit_id: null
+  tiers_by_required_awardings: null
+- award_sub_type: GLOBAL
+  award_type: global
+  awardings_required_to_grant_benefits: null
+  coin_price: 100
+  coin_reward: 0
+  count: 88
+  days_of_drip_extension: null
+  days_of_premium: null
+  description: Shows the Silver Award... and that's it.
+  end_date: null
+  giver_coin_reward: null
+  icon_format: null
+  icon_height: 512
+  icon_url: https://www.redditstatic.com/gold/awards/icon/silver_512.png
+  icon_width: 512
+  id: gid_1
+  is_enabled: true
+  is_new: false
+  name: Silver
+  penny_donate: null
+  penny_price: null
+  resized_icons:
+  - height: 16
+    url: https://www.redditstatic.com/gold/awards/icon/silver_16.png
+    width: 16
+  - height: 32
+    url: https://www.redditstatic.com/gold/awards/icon/silver_32.png
+    width: 32
+  - height: 48
+    url: https://www.redditstatic.com/gold/awards/icon/silver_48.png
+    width: 48
+  - height: 64
+    url: https://www.redditstatic.com/gold/awards/icon/silver_64.png
+    width: 64
+  - height: 128
+    url: https://www.redditstatic.com/gold/awards/icon/silver_128.png
+    width: 128
+  resized_static_icons:
+  - height: 16
+    url: https://www.redditstatic.com/gold/awards/icon/silver_16.png
+    width: 16
+  - height: 32
+    url: https://www.redditstatic.com/gold/awards/icon/silver_32.png
+    width: 32
+  - height: 48
+    url: https://www.redditstatic.com/gold/awards/icon/silver_48.png
+    width: 48
+  - height: 64
+    url: https://www.redditstatic.com/gold/awards/icon/silver_64.png
+    width: 64
+  - height: 128
+    url: https://www.redditstatic.com/gold/awards/icon/silver_128.png
+    width: 128
+  start_date: null
+  static_icon_height: 512
+  static_icon_url: https://www.redditstatic.com/gold/awards/icon/silver_512.png
+  static_icon_width: 512
+  subreddit_coin_reward: 0
+  subreddit_id: null
+  tiers_by_required_awardings: null
+- award_sub_type: GLOBAL
+  award_type: global
+  awardings_required_to_grant_benefits: null
+  coin_price: 150
+  coin_reward: 0
+  count: 85
+  days_of_drip_extension: null
+  days_of_premium: null
+  description: Thank you stranger. Shows the award.
+  end_date: null
+  giver_coin_reward: null
+  icon_format: null
+  icon_height: 2048
+  icon_url: https://i.redd.it/award_images/t5_22cerq/klvxk1wggfd41_Helpful.png
+  icon_width: 2048
+  id: award_f44611f1-b89e-46dc-97fe-892280b13b82
+  is_enabled: true
+  is_new: false
+  name: Helpful
+  penny_donate: null
+  penny_price: null
+  resized_icons:
+  - height: 16
+    url: https://preview.redd.it/award_images/t5_22cerq/klvxk1wggfd41_Helpful.png?width=16&height=16&auto=webp&s=a5662dfbdb402bf67866c050aa76c31c147c2f45
+    width: 16
+  - height: 32
+    url: https://preview.redd.it/award_images/t5_22cerq/klvxk1wggfd41_Helpful.png?width=32&height=32&auto=webp&s=a6882eb3f380e8e88009789f4d0072e17b8c59f1
+    width: 32
+  - height: 48
+    url: https://preview.redd.it/award_images/t5_22cerq/klvxk1wggfd41_Helpful.png?width=48&height=48&auto=webp&s=e50064b090879e8a0b55e433f6ee61d5cb5fbe1d
+    width: 48
+  - height: 64
+    url: https://preview.redd.it/award_images/t5_22cerq/klvxk1wggfd41_Helpful.png?width=64&height=64&auto=webp&s=8e5bb2e76683cb6b161830bcdd9642049d6adc11
+    width: 64
+  - height: 128
+    url: https://preview.redd.it/award_images/t5_22cerq/klvxk1wggfd41_Helpful.png?width=128&height=128&auto=webp&s=eda4a9246f95f42ee6940cc0ec65306fd20de878
+    width: 128
+  resized_static_icons:
+  - height: 16
+    url: https://preview.redd.it/award_images/t5_22cerq/klvxk1wggfd41_Helpful.png?width=16&height=16&auto=webp&s=a5662dfbdb402bf67866c050aa76c31c147c2f45
+    width: 16
+  - height: 32
+    url: https://preview.redd.it/award_images/t5_22cerq/klvxk1wggfd41_Helpful.png?width=32&height=32&auto=webp&s=a6882eb3f380e8e88009789f4d0072e17b8c59f1
+    width: 32
+  - height: 48
+    url: https://preview.redd.it/award_images/t5_22cerq/klvxk1wggfd41_Helpful.png?width=48&height=48&auto=webp&s=e50064b090879e8a0b55e433f6ee61d5cb5fbe1d
+    width: 48
+  - height: 64
+    url: https://preview.redd.it/award_images/t5_22cerq/klvxk1wggfd41_Helpful.png?width=64&height=64&auto=webp&s=8e5bb2e76683cb6b161830bcdd9642049d6adc11
+    width: 64
+  - height: 128
+    url: https://preview.redd.it/award_images/t5_22cerq/klvxk1wggfd41_Helpful.png?width=128&height=128&auto=webp&s=eda4a9246f95f42ee6940cc0ec65306fd20de878
+    width: 128
+  start_date: null
+  static_icon_height: 2048
+  static_icon_url: https://i.redd.it/award_images/t5_22cerq/klvxk1wggfd41_Helpful.png
+  static_icon_width: 2048
+  subreddit_coin_reward: 0
+  subreddit_id: null
+  tiers_by_required_awardings: null
+- award_sub_type: GLOBAL
+  award_type: global
+  awardings_required_to_grant_benefits: null
+  coin_price: 125
+  coin_reward: 0
+  count: 79
+  days_of_drip_extension: null
+  days_of_premium: null
+  description: When you come across a feel-good thing.
+  end_date: null
+  giver_coin_reward: null
+  icon_format: null
+  icon_height: 2048
+  icon_url: https://i.redd.it/award_images/t5_22cerq/5izbv4fn0md41_Wholesome.png
+  icon_width: 2048
+  id: award_5f123e3d-4f48-42f4-9c11-e98b566d5897
+  is_enabled: true
+  is_new: false
+  name: Wholesome
+  penny_donate: null
+  penny_price: null
+  resized_icons:
+  - height: 16
+    url: https://preview.redd.it/award_images/t5_22cerq/5izbv4fn0md41_Wholesome.png?width=16&height=16&auto=webp&s=92932f465d58e4c16b12b6eac4ca07d27e3d11c0
+    width: 16
+  - height: 32
+    url: https://preview.redd.it/award_images/t5_22cerq/5izbv4fn0md41_Wholesome.png?width=32&height=32&auto=webp&s=d11484a208d68a318bf9d4fcf371171a1cb6a7ef
+    width: 32
+  - height: 48
+    url: https://preview.redd.it/award_images/t5_22cerq/5izbv4fn0md41_Wholesome.png?width=48&height=48&auto=webp&s=febdf28b6f39f7da7eb1365325b85e0bb49a9f63
+    width: 48
+  - height: 64
+    url: https://preview.redd.it/award_images/t5_22cerq/5izbv4fn0md41_Wholesome.png?width=64&height=64&auto=webp&s=b4406a2d88bf86fa3dc8a45aacf7e0c7bdccc4fb
+    width: 64
+  - height: 128
+    url: https://preview.redd.it/award_images/t5_22cerq/5izbv4fn0md41_Wholesome.png?width=128&height=128&auto=webp&s=19555b13e3e196b62eeb9160d1ac1d1b372dcb0b
+    width: 128
+  resized_static_icons:
+  - height: 16
+    url: https://preview.redd.it/award_images/t5_22cerq/5izbv4fn0md41_Wholesome.png?width=16&height=16&auto=webp&s=92932f465d58e4c16b12b6eac4ca07d27e3d11c0
+    width: 16
+  - height: 32
+    url: https://preview.redd.it/award_images/t5_22cerq/5izbv4fn0md41_Wholesome.png?width=32&height=32&auto=webp&s=d11484a208d68a318bf9d4fcf371171a1cb6a7ef
+    width: 32
+  - height: 48
+    url: https://preview.redd.it/award_images/t5_22cerq/5izbv4fn0md41_Wholesome.png?width=48&height=48&auto=webp&s=febdf28b6f39f7da7eb1365325b85e0bb49a9f63
+    width: 48
+  - height: 64
+    url: https://preview.redd.it/award_images/t5_22cerq/5izbv4fn0md41_Wholesome.png?width=64&height=64&auto=webp&s=b4406a2d88bf86fa3dc8a45aacf7e0c7bdccc4fb
+    width: 64
+  - height: 128
+    url: https://preview.redd.it/award_images/t5_22cerq/5izbv4fn0md41_Wholesome.png?width=128&height=128&auto=webp&s=19555b13e3e196b62eeb9160d1ac1d1b372dcb0b
+    width: 128
+  start_date: null
+  static_icon_height: 2048
+  static_icon_url: https://i.redd.it/award_images/t5_22cerq/5izbv4fn0md41_Wholesome.png
+  static_icon_width: 2048
+  subreddit_coin_reward: 0
+  subreddit_id: null
+  tiers_by_required_awardings: null
+- award_sub_type: PREMIUM
+  award_type: global
+  awardings_required_to_grant_benefits: null
+  coin_price: 30
+  coin_reward: 0
+  count: 1
+  days_of_drip_extension: null
+  days_of_premium: null
+  description: A glowing commendation for all to see
+  end_date: null
+  giver_coin_reward: null
+  icon_format: APNG
+  icon_height: 2048
+  icon_url: https://www.redditstatic.com/gold/awards/icon/Illuminati_512.png
+  icon_width: 2048
+  id: award_b4ff447e-05a5-42dc-9002-63568807cfe6
+  is_enabled: true
+  is_new: false
+  name: All-Seeing Upvote
+  penny_donate: null
+  penny_price: null
+  resized_icons:
+  - height: 16
+    url: https://www.redditstatic.com/gold/awards/icon/Illuminati_16.png
+    width: 16
+  - height: 32
+    url: https://www.redditstatic.com/gold/awards/icon/Illuminati_32.png
+    width: 32
+  - height: 48
+    url: https://www.redditstatic.com/gold/awards/icon/Illuminati_48.png
+    width: 48
+  - height: 64
+    url: https://www.redditstatic.com/gold/awards/icon/Illuminati_64.png
+    width: 64
+  - height: 128
+    url: https://www.redditstatic.com/gold/awards/icon/Illuminati_128.png
+    width: 128
+  resized_static_icons:
+  - height: 16
+    url: https://preview.redd.it/award_images/t5_q0gj4/am40b8b08l581_All-SeeingUpvote2.png?width=16&height=16&auto=webp&s=978c93744e53b8c9305467a7be792e5c401eac6c
+    width: 16
+  - height: 32
+    url: https://preview.redd.it/award_images/t5_q0gj4/am40b8b08l581_All-SeeingUpvote2.png?width=32&height=32&auto=webp&s=d2ee343eef5048ad3add75d4a4d4e3922bb9565a
+    width: 32
+  - height: 48
+    url: https://preview.redd.it/award_images/t5_q0gj4/am40b8b08l581_All-SeeingUpvote2.png?width=48&height=48&auto=webp&s=7d216fd3a05c61d9fb75b27092844c546d958f14
+    width: 48
+  - height: 64
+    url: https://preview.redd.it/award_images/t5_q0gj4/am40b8b08l581_All-SeeingUpvote2.png?width=64&height=64&auto=webp&s=b76693f84fd19b04d0c0444a9812d812105e2d8f
+    width: 64
+  - height: 128
+    url: https://preview.redd.it/award_images/t5_q0gj4/am40b8b08l581_All-SeeingUpvote2.png?width=128&height=128&auto=webp&s=5353352ae9f443c353ef0b7725dabcfc1b3829a5
+    width: 128
+  start_date: null
+  static_icon_height: 2048
+  static_icon_url: https://i.redd.it/award_images/t5_q0gj4/am40b8b08l581_All-SeeingUpvote2.png
+  static_icon_width: 2048
+  subreddit_coin_reward: 0
+  subreddit_id: null
+  tiers_by_required_awardings: null
+allow_live_comments: true
+approved_at_utc: null
+approved_by: null
+archived: false
+author: !!python/object:praw.models.reddit.redditor.Redditor
+  _fetched: false
+  _listing_use_sort: true
+  _reddit: *id002
+  name: PandoraNyxie
+author_flair_background_color: '#ff94e2'
+author_flair_css_class: null
+author_flair_richtext:
+- e: text
+  t: "\U0001F43C"
+author_flair_template_id: 49764c76-d90d-11ea-92fb-0e0ed0468cb3
+author_flair_text: "\U0001F43C"
+author_flair_text_color: dark
+author_flair_type: richtext
+author_fullname: t2_2rrp4qtz
+author_is_blocked: false
+author_patreon_flair: false
+author_premium: true
+awarders: []
+banned_at_utc: null
+banned_by: null
+can_gild: false
+can_mod_post: false
+category: null
+clicked: false
+comment_limit: 2048
+comment_sort: confidence
+content_categories: null
+contest_mode: false
+created: 1643044401.0
+created_utc: 1643044401.0
+discussion_type: null
+distinguished: null
+domain: v.redd.it
+downs: 0
+edited: false
+gilded: 0
+gildings:
+  gid_1: 88
+hidden: false
+hide_score: false
+id: sbr31o
+is_created_from_ads_ui: false
+is_crosspostable: false
+is_meta: false
+is_original_content: false
+is_reddit_media_domain: true
+is_robot_indexable: true
+is_self: false
+is_video: true
+likes: null
+link_flair_background_color: ''
+link_flair_css_class: null
+link_flair_richtext: []
+link_flair_text: null
+link_flair_text_color: dark
+link_flair_type: text
+locked: false
+media:
+  reddit_video:
+    bitrate_kbps: 4800
+    dash_url: https://v.redd.it/aoiy77lx4od81/DASHPlaylist.mpd?a=1655137962%2CNzk4MzNlYzQ3YzdmZTQyMjU0Njk5ZmZiYWViNTQyNGQzYmE5YTc5Mzc4YjM1MjgyMGEwMzQ2MThhMTdmYTA1Nw%3D%3D&v=1&f=sd
+    duration: 38
+    fallback_url: https://v.redd.it/aoiy77lx4od81/DASH_1080.mp4?source=fallback
+    height: 1080
+    hls_url: https://v.redd.it/aoiy77lx4od81/HLSPlaylist.m3u8?a=1655137962%2CZjhlNjI0YTFjNDM0NWNlNGMwNjY5MDhkNTZjODZkNjA1YzBhZDIyMThiN2M0M2EwNGE2YjJkNjUzMjFhOWY4Zg%3D%3D&v=1&f=sd
+    is_gif: false
+    scrubber_media_url: https://v.redd.it/aoiy77lx4od81/DASH_96.mp4
+    transcoding_status: completed
+    width: 1920
+media_embed: {}
+media_only: false
+mod_note: null
+mod_reason_by: null
+mod_reason_title: null
+mod_reports: []
+name: t3_sbr31o
+no_follow: false
+num_comments: 1068
+num_crossposts: 12
+num_reports: null
+over_18: false
+parent_whitelist_status: all_ads
+permalink: /r/memes/comments/sbr31o/discordggrmemes_the_official_rmemes_discord_server/
+pinned: false
+post_hint: hosted:video
+preview:
+  enabled: false
+  images:
+  - id: l0g12wwI-CgqQ2suhEjpBu_KMHyMoG9hQjB22_4whiY
+    resolutions:
+    - height: 60
+      url: https://external-preview.redd.it/RGdFwILa-LUl-hCoe8Zf4OQnEfbRo3hA7qElc_wwMzk.png?width=108&crop=smart&format=pjpg&auto=webp&s=68480afa79ad14278de16410dd654bde402ac9f9
+      width: 108
+    - height: 121
+      url: https://external-preview.redd.it/RGdFwILa-LUl-hCoe8Zf4OQnEfbRo3hA7qElc_wwMzk.png?width=216&crop=smart&format=pjpg&auto=webp&s=e3736e72f3c82b8e0f05c5b0e1adb062ebed6220
+      width: 216
+    - height: 180
+      url: https://external-preview.redd.it/RGdFwILa-LUl-hCoe8Zf4OQnEfbRo3hA7qElc_wwMzk.png?width=320&crop=smart&format=pjpg&auto=webp&s=3859bd667576190c5bb1088a9b8918a7901178ff
+      width: 320
+    - height: 360
+      url: https://external-preview.redd.it/RGdFwILa-LUl-hCoe8Zf4OQnEfbRo3hA7qElc_wwMzk.png?width=640&crop=smart&format=pjpg&auto=webp&s=827718455487d8f846f970f1a2c6c87cab7bf5ca
+      width: 640
+    - height: 540
+      url: https://external-preview.redd.it/RGdFwILa-LUl-hCoe8Zf4OQnEfbRo3hA7qElc_wwMzk.png?width=960&crop=smart&format=pjpg&auto=webp&s=97137706b700dd81105a149d8bdf80f1262d923a
+      width: 960
+    - height: 607
+      url: https://external-preview.redd.it/RGdFwILa-LUl-hCoe8Zf4OQnEfbRo3hA7qElc_wwMzk.png?width=1080&crop=smart&format=pjpg&auto=webp&s=a723af4d1301780c2d4a26791fa98a61826b51c7
+      width: 1080
+    source:
+      height: 2160
+      url: https://external-preview.redd.it/RGdFwILa-LUl-hCoe8Zf4OQnEfbRo3hA7qElc_wwMzk.png?format=pjpg&auto=webp&s=eb28d5059fb5bc1d8b54cd6defd395c0eae1d112
+      width: 3840
+    variants: {}
+pwls: 6
+quarantine: false
+removal_reason: null
+removed_by: null
+removed_by_category: null
+report_reasons: null
+saved: false
+score: 26033
+secure_media:
+  reddit_video:
+    bitrate_kbps: 4800
+    dash_url: https://v.redd.it/aoiy77lx4od81/DASHPlaylist.mpd?a=1655137962%2CNzk4MzNlYzQ3YzdmZTQyMjU0Njk5ZmZiYWViNTQyNGQzYmE5YTc5Mzc4YjM1MjgyMGEwMzQ2MThhMTdmYTA1Nw%3D%3D&v=1&f=sd
+    duration: 38
+    fallback_url: https://v.redd.it/aoiy77lx4od81/DASH_1080.mp4?source=fallback
+    height: 1080
+    hls_url: https://v.redd.it/aoiy77lx4od81/HLSPlaylist.m3u8?a=1655137962%2CZjhlNjI0YTFjNDM0NWNlNGMwNjY5MDhkNTZjODZkNjA1YzBhZDIyMThiN2M0M2EwNGE2YjJkNjUzMjFhOWY4Zg%3D%3D&v=1&f=sd
+    is_gif: false
+    scrubber_media_url: https://v.redd.it/aoiy77lx4od81/DASH_96.mp4
+    transcoding_status: completed
+    width: 1920
+secure_media_embed: {}
+selftext: ''
+selftext_html: null
+send_replies: true
+spoiler: false
+stickied: true
+subreddit: !!python/object:praw.models.reddit.subreddit.Subreddit
+  _fetched: false
+  _path: r/memes/
+  _reddit: *id002
+  display_name: memes
+subreddit_id: t5_2qjpg
+subreddit_name_prefixed: r/memes
+subreddit_subscribers: 18845053
+subreddit_type: public
+suggested_sort: null
+thumbnail: https://b.thumbs.redditmedia.com/98yvzxNzEjGmRlrhG-GLxk9B1vVOxbxEl4fMxdS44gU.jpg
+thumbnail_height: 78
+thumbnail_width: 140
+title: discord.gg/rmemes - The official r/Memes Discord Server
+top_awarded_type: null
+total_awards_received: 257
+treatment_tags: []
+ups: 26033
+upvote_ratio: 0.99
+url: https://v.redd.it/aoiy77lx4od81
+url_overridden_by_dest: https://v.redd.it/aoiy77lx4od81
+user_reports: []
+view_count: null
+visited: false
+whitelist_status: all_ads
+wls: 6
