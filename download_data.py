@@ -19,7 +19,7 @@ titles = []
 for submission in python_subr:
     urls.append(submission.url)
     titles.append(submission.title)
-with open("urls.pickle", "wb") as f:
+"""with open("urls.pickle", "wb") as f:
     pickle.dump(urls, f, pickle.HIGHEST_PROTOCOL)
 with open("titles.pickle", "wb") as g:
-    pickle.dump(titles, g, pickle.HIGHEST_PROTOCOL)
+    pickle.dump(titles, g, pickle.HIGHEST_PROTOCOL)"""
