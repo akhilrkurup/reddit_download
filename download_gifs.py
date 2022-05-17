@@ -14,15 +14,25 @@ with open("titles.pickle", "rb") as g:
 with open("counter.txt", "r") as t:
     a = t.read()
     i = int(a)
-print(urls)
-"""res = requests.get(urls[i])
-if res.status_code == 200:
-    title = titles[i] + ".gif"
-    with open(r"gifs/" + title, "wb") as out:
-        out.write(res.content)
-    with open("counter.txt", "w") as counter_txt:
-        counter_txt.write(str(i + 1))
+if urls[i][-3:] == "gif":
+    res = requests.get(urls[i])
+    if res.status_code == 200:
+        title = titles[i] + ".gif"
+        with open(r"gifs/" + title, "wb") as out:
+            out.write(res.content)
+        with open("counter.txt", "w") as counter_txt:
+            counter_txt.write(str(i + 1))
+    else:
+        with open("logfile.txt", "a") as logf:
+            logf.write("FAIL on " + datetime.datetime.now())
 else:
-    with open("logfile.txt", "a") as logf:
-        logf.write("FAIL on " + datetime.datetime.now())
-"""
+    res = requests.get(urls[i])
+    if res.status_code == 200:
+        title = titles[i] + ".mp4"
+        with open(r"gifs/" + title, "wb") as out:
+            out.write(res.content)
+        with open("counter.txt", "w") as counter_txt:
+            counter_txt.write(str(i + 1))
+    else:
+        with open("logfile.txt", "a") as logf:
+            logf.write("FAIL on " + datetime.datetime.now())

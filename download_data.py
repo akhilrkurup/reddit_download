@@ -13,13 +13,17 @@ reddit = praw.Reddit(
 )
 
 sr = reddit.subreddit("whenthe")
-python_subr = sr.top(limit=25)
+python_subr = sr.top(limit=60)
 urls = []
 titles = []
+
 for submission in python_subr:
-    urls.append(submission.url)
     titles.append(submission.title)
-"""with open("urls.pickle", "wb") as f:
+    a = submission.url
+    if a[-3:] != "gif":
+        a = submission.media["reddit_video"]["fallback_url"]
+    urls.append(a)
+with open("urls.pickle", "wb") as f:
     pickle.dump(urls, f, pickle.HIGHEST_PROTOCOL)
 with open("titles.pickle", "wb") as g:
-    pickle.dump(titles, g, pickle.HIGHEST_PROTOCOL)"""
+    pickle.dump(titles, g, pickle.HIGHEST_PROTOCOL)
