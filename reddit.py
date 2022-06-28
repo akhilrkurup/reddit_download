@@ -8,8 +8,8 @@ import praw
 import requests
 
 reddit = praw.Reddit(
-    client_id="mlCV4KaLVVmrOj6nz2ULZQ",
-    client_secret="DC0wvImgiUPixsQR2FrJvkvdr1JOew",
+    client_id="##",
+    client_secret="##",
     user_agent="my user agent",
 )
 
